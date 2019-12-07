@@ -1,20 +1,79 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ChatBot UNAMAD</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<main>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-5 chatbox">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <span class="glyphicon glyphicon-comment"></span> Chat
+                      <div class="btn-group pull-right">
+                          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                         <ul class="dropdown-menu slidedown">
+                              <li><a href="#"><span class="glyphicon glyphicon-refresh"></span>Refresh</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-ok-sign"></span>Available</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-remove"></span>Busy</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-time"></span>Away</a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-off"></span>Sign Out</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="chat">
+                          <li class="clearfix" *ngFor="let mensaje of msgs; index as i" [ngClass]="{'left': mensaje.user === 'unamad', 'right': mensaje.user === 'usuario' }">
+                                <span class="chat-img" [ngClass]="{'pull-left': mensaje.user === 'unamad', 'pull-right': mensaje.user === 'usuario' }">
+                                    <img *ngIf="mensaje.user === 'unamad'" src="../assets/img/logo.png" alt="User Avatar" class="img-circle" width="50px" />
+                                    <img *ngIf="mensaje.user === 'usuario'" src="../assets/img/user.png" alt="User Avatar" class="img-circle" width="50px" />
+
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header"  *ngIf="mensaje.user === 'unamad'">
+                                        <strong class="primary-font">{{mensaje.user}}</strong> <small class="pull-right text-muted">
+                                    <span class="glyphicon glyphicon-time"></span>{{mensaje.time | date:'shortTime'}}</small>
+                                    </div>
+                                    <div class="header" *ngIf="mensaje.user === 'usuario'">
+                                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>{{mensaje.time | date:'shortTime'}}</small>
+                                            <strong class="pull-right primary-font">{{mensaje.user}}</strong>
+                                        </div>
+                                    <p>
+                                        {{mensaje.text}}
+                                    </p>
+                                </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="panel-footer">
+                      <form  class="input-group" #f = "ngForm" ngNativeValidate (submit) = "sendMessage(f)">
+                          <input [(ngModel)] = "text"  name="text" required type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                          <span class="input-group-btn">
+                              <button class="btn btn-warning btn-sm" type="submit">
+                                  Enviar</button>
+                          </span>
+                        </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
