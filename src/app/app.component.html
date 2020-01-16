@@ -1,25 +1,64 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ChatBot UNAMAD</a>
-    </div>
+<div class="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-uppercase" href="#">Chat bot <span class="label label-success text-capitalize">UNAMAD</span></a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Home</a></li>
+                <li><button type="button" class="btn btns btn-success navbar-btn btn-circle">Sesión</button></li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="headers">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="content">
+                  <div class="pull-middle">
+                    <h1 class="page-header">Software de inteligencia artificial capaz de simular una conversación con una persona.</h1>
+                    <p class="lead">Universidad Nacional Amazónica de Madre de Dios</p>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form action="#" role="form">
+                                <div class="input-group inputs-group">
+                                    <!-- <input type="email" class="form-control" placeholder="Email Address" required> -->
+                                    <span class="input-group-btn" style="opacity: 0;">
+                                      <button class="btn btns btn-success btn-circle" type="submit">¿Tienes alguna pregunta?</button>
+                                    </span>                        
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  </div>              
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-1 text-center mt-100 mb-100">
+                <div class="phone">
+                    <img class="img-responsive img-rounded" src="../assets/img/logo.png">
+                </div>
+            </div>
+          </div>
+        </div>
+    </header>
+</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<main>
+<main >
     <div class="container">
+      
+
         <div class="row">
           <div class="col-md-5 chatbox">
               <div class="panel panel-primary">
@@ -77,3 +116,8 @@
       </div>
   </div>
 </main>
+<script>
+ $('#myCarousel').carousel({
+    interval: 3000,
+ })
+</script>

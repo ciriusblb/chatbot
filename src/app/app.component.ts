@@ -25,7 +25,7 @@ export class AppComponent {
     this.msgs.push(msg);
     this._msgService.sendMessage(msg)
       .subscribe((resp: any) => {
-        this.msgs.push({user: 'unamad', text: resp.msg.answer, time: new Date()});
+        this.msgs.push({user: 'unamad', text: resp.msg, time: new Date()});
         console.log(this.msgs);
       })
 

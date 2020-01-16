@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: 'http://localhost:8000'
+  URL: 'https://server-chatbox.herokuapp.com/'
 };
 
 /*
